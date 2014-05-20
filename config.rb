@@ -47,6 +47,14 @@
 #   end
 # end
 
+# github deploy
+activate :deploy do |deploy|
+  deploy.method = :git
+  deploy.build_before = true
+  deploy.branch   = 'master'
+  deploy.remote   = 'git@github.com:iphilgood/iphilgood.github.io.git'
+end
+
 set :css_dir, 'stylesheets'
 
 set :js_dir, 'javascripts'
