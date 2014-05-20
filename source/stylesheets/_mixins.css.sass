@@ -1,0 +1,9 @@
+//
+// Adds a background image and includes the retina version as well
+// Usage: +retina-image("test") # => uses images/test.png and images/test@2x.png
+//
+=retina-image($image_name, $extension: '.png')
+  background:
+    image: image-url($image_name + $extension)
+    image: none, image-url($image_name + '.svg')
+    repeat: no-repeat

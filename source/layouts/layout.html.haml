@@ -1,0 +1,57 @@
+!!! 5
+/[if lt IE 7]
+  %html.no-js.lt-ie9.lt-ie8.lt-ie7{ lang: I18n.locale }
+/[if IE 7]
+  %html.no-js.lt-ie9.lt-ie8{ lang: I18n.locale }
+/[if IE 8]
+  %html.no-js.lt-ie9{ lang: I18n.locale }
+<!--[if gt IE 8]><!-->
+%html.no-js{ lang: I18n.locale }
+  <!--<![endif]-->
+  %head
+    %meta{ charset: 'utf-8' }
+    %meta{ 'http-equiv' => 'X-UA-Compatible', content: 'IE=edge' }
+    - if  content_for?(:head)
+      = yield(:head)
+    - else
+      %title IPHILGOOD
+      %meta{ name: 'keywords', content: '' }
+      %meta{ name: 'description', content: '' }
+
+    %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1.0' }
+
+    -# Favicons
+    %link{ rel: 'apple-touch-icon', type: 'image/png', href: '/images/favicons/favicon-129x129.png' }
+    %link{ rel: 'icon', type: 'image/png', href: '/images/favicons/favicon-32x32.png' }
+    <!--[if IE]>
+    %link{ rel: 'shortcut icon', type: 'image/x-icon', href: '/images/favicons/favicon-16x16.ico' }
+    <![endif]-->
+
+    -# Application Stylesheet
+    = stylesheet_link_tag 'application'
+
+    = javascript_include_tag 'vendor/modernizr'
+
+    -# Google Analytics Code
+    :javascript
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-15826339-7', 'iphilgood.ch');
+      ga('send', 'pageview');
+
+  %body
+    %header{ role: 'banner' }
+      = partial('layouts/header')
+
+    .page-wrapper
+      %main#maincontent{ role: 'content' }
+        = yield
+
+      %footer{ role: 'contentinfo' }
+        = partial('layouts/footer')
+
+    -# Application JavaScripts
+    = javascript_include_tag 'application'
