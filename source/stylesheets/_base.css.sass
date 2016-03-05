@@ -1,11 +1,42 @@
 body
-  background: $black
-  color: $white
+  background: $white
+  color: $color__primary
+  font-family: 'Raleway', sans-serif
 
 .page-wrapper
   max-width: 1200px
   margin: 0 auto
   overflow: hidden
 
-h1
+h1, h2
   text-align: center
+  text-transform: uppercase
+  margin: 0
+
+h1
+  font-size: 48px
+  font-weight: 700
+  letter-spacing: 1.6px
+
+h2
+  font-size: 20px
+  font-weight: 400
+
+p,
+ul,
+ol
+  font-size: 16px
+  margin: 0 0 20px 0
+
+a
+  color: $color__primary
+  text-decoration: none
+
+  &:hover,
+  &:visited,
+  &:active
+    color: $black
+    text-decoration: underline
+
+.font__bold
+  font-weight: 700

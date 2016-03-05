@@ -1,17 +1,23 @@
-header
-  height: 500px
+.header
+  padding: 0 10px
+
+.header__name
+  border: 2px solid $color__primary
+  padding: 10px 0
   width: 100%
-  margin-bottom: 100px
+  max-width: 650px
+  margin: 50px auto 20px auto
 
-.header-image-wrapper
-  background: image-url('wood.jpg') no-repeat center -300px fixed
-  background-size: cover
-  border-bottom: 10px solid $white
+.header__title
+  margin-bottom: 20px
 
-.diamond
-  +retina-image('ruby')
-  padding: 150px 0
-  background-size: 100% 100%
-  width: 308px
-  height: 208px
-  margin: 0 auto
+.header__avatar
+  width: 100px
+  height: 100px
+  margin: 0 auto 20px auto
+
+  img
+    width: 100%
+
+.header__contact
+  text-align: center

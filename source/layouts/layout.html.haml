@@ -12,11 +12,11 @@
     %meta{ charset: 'utf-8' }
     %meta{ 'http-equiv' => 'X-UA-Compatible', content: 'IE=edge' }
     - if  content_for?(:head)
-      = yield(:head)
+      = yield_content(:head)
     - else
-      %title IPHILGOOD
-      %meta{ name: 'keywords', content: '' }
-      %meta{ name: 'description', content: '' }
+      %title Phil Schilter
+      %meta{ name: 'keywords', content: 'frontend, front end, engineer' }
+      %meta{ name: 'description', content: "My name is Phil. I'm a Frontend Engineer" }
 
     %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1.0' }
 
@@ -26,6 +26,9 @@
     <!--[if IE]>
     %link{ rel: 'shortcut icon', type: 'image/x-icon', href: '/images/favicons/favicon-16x16.ico' }
     <![endif]-->
+
+    -# Google Font Raleway
+    %link{ href: 'https://fonts.googleapis.com/css?family=Raleway:400,600,700', rel: 'stylesheet', type: 'text/css' }
 
     -# Application Stylesheet
     = stylesheet_link_tag 'application'
@@ -43,10 +46,10 @@
       ga('send', 'pageview');
 
   %body
-    %header{ role: 'banner' }
+    %header.header{ role: 'banner' }
       = partial('layouts/header')
 
-    .page-wrapper
+    .page__wrapper
       %main#maincontent{ role: 'content' }
         = yield
 
