@@ -1,0 +1,32 @@
+# Welcome to Amplified for Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: Phil Good's playground
+email: phil.schilter@gmail.com
+description: >
+  This is the digital playground of Mr Phil Good.
+logo: "/assets/images/logo.png"
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://iphilgood.ch" # the base hostname & protocol for your site
+paginate:	5 # The number of posts to show per page on your homepage
+
+name: 'Phil Good'
+bio: >
+  Allow me to introduce myself. My name is Phil Good and I'm a passionate Software Engineer. I'm currently studying Computer Science at the HSR in Rapperswil. I like to call myself a Software Developer with pretty awesome Front End skills. Ruby is the language I've fallen in love since the first time. I also like my sugar with coffee and cream.
+author_image: "/assets/images/author.png"
+twitter_username: iphilgoodfella
+github_username:  iphilgood
+
+# Build settings
+markdown: kramdown
+
+kramdown:
+  parse_block_html: true
+
+gems:
+  - jekyll-paginate

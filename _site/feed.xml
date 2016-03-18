@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Phil Good&#39;s playground</title>
+    <description>This is the digital playground of Mr Phil Good.
+</description>
+    <link>http://iphilgood.ch/</link>
+    <atom:link href="http://iphilgood.ch/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Fri, 18 Mar 2016 21:53:51 +0100</pubDate>
+    <lastBuildDate>Fri, 18 Mar 2016 21:53:51 +0100</lastBuildDate>
+    <generator>Jekyll v3.1.2</generator>
+    
+      <item>
+        <title>Hello World</title>
+        <description>&lt;p&gt;This is my very first post.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 18 Mar 2016 00:00:00 +0100</pubDate>
+        <link>http://iphilgood.ch/2016/03/18/hello-world.html</link>
+        <guid isPermaLink="true">http://iphilgood.ch/2016/03/18/hello-world.html</guid>
+        
+        
+      </item>
+    
+  </channel>
+</rss>
