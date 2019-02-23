@@ -1,249 +1,156 @@
-# Amplify for Jekyll
+# Get started building your personal website
 
-*A Jekyll html theme in the vague style of Medium.com built using Google AMP*
+### Showcase your software development skills
 
-Google's [Accelerated Mobile Pages Project](https://www.ampproject.org/)
-(a.k.a. "Google AMP" or Google ⚡) is an open-source project that defines rules
-for creating websites that load nearly instantly even on mobile devices with
-slow connections.
+This repository gives you the code you'll need to kickstart a personal website that showcases your work as a software developer. And when you manage the code in a GitHub repository, it will automatically render a webpage with the owner's profile information, including a photo, bio, and repositories.
 
-Check out a live example of this theme at
-[http://ageitgey.github.io/amplify/](http://ageitgey.github.io/amplify/2016/03/08/example-post.html)
-or
-[via Google's CDN](https://cdn.ampproject.org/c/s/ageitgey.github.io/amplify/2016/03/08/example-post.html).
+Your personal website is waiting to be personalized, though. It includes space to highlight your specific areas of interest in software development, like languages or industries. And it's standing by to publish your next great blog post.
 
-## Screenshot
+It's all possible using the combination of [Jekyll](https://jekyllrb.com/docs/) (for building your website), [GitHub Pages](https://pages.github.com/) (for hosting your website), and [GitHub's API](https://developer.github.com/v3/) (for automatically populating your website with content).
 
-![screenshot](/assets/images/screenshot.png)
+## Installation
 
-## Why use Google AMP?
+### Fork the `github/personal-website` repo
 
-There are two reasons to use Google AMP:
+You'll be making your own copy of the "personal website starter" repository so you have your own project to customize. A "fork" is a copy of a repository. So select "Fork" atop [the `github/personal-website` repository](https://github.com/github/personal-website).
 
-First, it's really fast! An often cited claim (by Amazon, Yahoo, Walmart and
-others) is that every extra 100ms improvement in page load time increases
-incremental revenue by up to 1%. Your personal blog might not be selling
-anything, but why settle for a slow page and risk losing readers?
+Once you've found a home for your forked repository, it's yours. You're the owner, so you're ready to publish, if you wish.
 
-Second, Google might feature your AMP page in Search Results! Google gives
-preferential treatment to AMP pages on Mobile Search. When it displays your
-page in the AMP search results widget, it will even serve your page through
-it's own CDN to make the page load even faster. It's similar to how
-[Facebook Instant Articles](https://instantarticles.fb.com/) works on the
-Facebook platform.
+### Install in your local development environment
 
-## How fast is this theme?
+If you want to manage your website in a local web development environment, you'll be using [Ruby](https://jekyllrb.com/docs/installation/).
 
-To get a general idea of how this theme performs, let's compare this page
-hosted on Github vs. another static page hosted on Github. We can use
-https://facebook.github.io/react/ as a comparison page. I've also included
-https://jekyllrb.com/ as another point of comparison (it's also hosted on
-Github).
+Once you've found a home for your forked repository, **[clone it](https://help.github.com/articles/cloning-a-repository/)**.
 
-Of course our page and these other pages have different
-layouts. But the main point is that they are typical static sites hosted
-on Github and are well-designed. So it should give us a rough idea of how
-other typical pages might perform. I'm not suggesting anything
-is wrong with these other pages. They are actually pretty fast!
+#### Install Jekyll
 
-If you are on a fast connection, all these pages load about the same speed
-but our page renders the main content much faster:
+Jekyll is a [Ruby Gem](https://jekyllrb.com/docs/ruby-101/#gems) that can be installed on most systems.
 
-#### First page visit with no throttling
-
-| Page                                                            | DOMContentReady | Load   |
-| -------------                                                   |:-----------:    | ------:|
-| https://facebook.github.io/react/                               | 1.7s            | 1.89s  |
-| https://jekyllrb.com/                                           | 500ms           | 909ms  |
-| https://ageitgey.github.io/amplify/2016/03/08/example-post.html | 61ms!           | 1.06s  |
-
-#### Second page visit with no throttling
-
-| Page                                                            | DOMContentReady | Load   |
-| -------------                                                   |:-----------:    | ------:|
-| https://facebook.github.io/react/                               | 1.08s           | 1.33s  |
-| https://jekyllrb.com/                                           | 212ms           | 486ms  |
-| https://ageitgey.github.io/amplify/2016/03/08/example-post.html | 66ms!           | 1.03s  |
-
-You'll see the main content render much faster because AMP
-[doesn't allow anything in your page](https://www.ampproject.org/docs/get_started/technical_overview.html)
-that would block the page from rendering after the initial HTML loads. This means no external
-css, no custom js, etc.
-
-Here's how this looks to the user (as rendered by [WebPageTest](http://www.webpagetest.org/)):
-
-![screenshot](/assets/images/speed.png)
-
-You can get sometimes get even faster speeds when your
-[page is served via Google's AMP CDN](https://cdn.ampproject.org/c/s/ageitgey.github.io/amplify/2016/03/08/example-post.html).
-But that's not always true depending the randomness of the internet and where
-you are connecting from.
-
-So there's some tiny benefit on a 100mbs wired connection. But optimization is much more
-important on a slow, high-latency mobile connection (i.e. most actual internet users in 2016).
-Let's try loading the page using the "Regular 2G (250kb/s, 300ms RT)" throttling setting in
-Chrome Dev Tools:
-
-#### First page visit with "Regular 2G" throttling
-
-| Page                                                            | DOMContentReady | Load   |
-| -------------                                                   |:-----------:    | ------:|
-| https://facebook.github.io/react/                               | 28.50s          | 29.39s |
-| https://jekyllrb.com/                                           | 1.75s           | 7.03s  |
-| https://ageitgey.github.io/amplify/2016/03/08/example-post.html | 530ms!          | 5.07s  |
-
-#### Second page visit with "Regular 2G" throttling
-
-| Page                                                            | DOMContentReady | Load   |
-| -------------                                                   |:-----------:    | ------:|
-| https://facebook.github.io/react/                               | 2.02s           | 2.55s  |
-| https://jekyllrb.com/                                           | 392ms           | 791ms  |
-| https://ageitgey.github.io/amplify/2016/03/08/example-post.html | 385ms!          | 1.64s  |
-
-Even a horribly slow connection with high latency, the user will still see a page render in
-half a second. That's great! The difference between 385ms and 28s is the different between
-someone reading your blog is skipping your blog.
-
-But notice that the Jekyll homepage still performs well on the second page load. Google AMP
-gives you a nice set of rules for making fast pages, but of course it isn't required to make
-a fast page.
-
-## Getting Started
-
-To use this theme, it's just like using any other Jekyll template:
-
-*Step 1:* [Install Jekyll](https://jekyllrb.com/docs/installation/)
-
-*On windows*
-If on windows you will need the ruby devkit available here: [rubyinstaller](http://rubyinstaller.org/).
-
-*Step 2:* Clone this repo to your computer
-
-```bash
-git clone git@github.com:ageitgey/amplify.git
+1. Install a full [Ruby development environment](https://jekyllrb.com/docs/installation/)
+2. Install Jekyll and [bundler](/docs/ruby-101/#bundler) [gems](/docs/ruby-101/#gems)
 ```
+gem install jekyll bundler
+```
+3. Change into your new directory
+```
+cd personal-website
+```
+4. Build the site and make it available on a local server
+```
+bundle exec jekyll serve
+```
+5. Now browse to [http://localhost:4000](http://localhost:4000)
 
-*Step 3:* Run `gem install bundler; bundle install` inside the new `/amplify/` folder that was
-just created to install the required ruby dependencies.
+### Publish
 
-*Step 4:* Tweak `_config.yml`.
+When you host your personal website's code on GitHub, you get the support of free hosting through GitHub Pages.
 
-Just fill in everything in the `# Site settings` section.
-You'll want to set your site's title, your name, your twitter username, etc.
+**The fastest approach** is to rename your repository `username.github.io`, where `username` is your GitHub username (or organization name). Then, the next time you push any changes to your repository's `master` branch, they'll be accessible on the web at your `username.github.io` address.
 
-*Step 5:* Run `bundle exec jekyll serve` and then open
-[http://localhost:4000/](http://localhost:4000/) to see your site!
+**If you want to use a custom domain**, however, you'll want to add it to your repository's "Custom domain" settings on github.com. And then register and/or [configure your domain with a DNS provider](https://help.github.com/articles/quick-start-setting-up-a-custom-domain/).
 
-*Step 6:* Publish your site
-[just like any other Jekyll site](https://jekyllrb.com/docs/deployment-methods/).
+## Customization
 
-## Google AMP Limitations
+It's your website, and you control the source code. So you can custom everything, if you like. But we've provided a handful of quick customizations for you to consider as you get your website off the ground.
 
-Google AMP sets many
-[strict limits on what you can include in your web pages](https://www.ampproject.org/docs/get_started/technical_overview.html).
-A few of these are worth talking about:
+### Quick configuration changes
 
-*Limitation: All CSS must be inline (no external css files).*
+Most customizations can be done in a matter of seconds, by revising your repository's `_config.yml` file. Just remember to restart your local server each time you save new changes so your Jekyll-powered website rebuilds correctly:
 
-Because of this, the main css file for this site is in `_includes/styles.scss`
-instead of in the normal `css/` Jekyll folder. This css file is inlined
-into the header of every page via the special `scssify` filter in `_includes/head.html`.
+1. Shut down your server by entering the keyboard command <kbd>CTRL</kbd>+<kbd>c</kbd>
+2. Restart your server: `jekyll serve`
 
-*Limitation: Size all resources statically*
 
-Every image you include in your page *must* have a height and width. This also
-applies to other things like embedding videos or other resources. Check below
-for more details.
+#### Layout
 
-## Writing Posts with Google AMP
+By default, your website will display in a two-column layout on larger-screen devices, with your photo, name, and basic information displayed in a left-aligned "sidebar." But you can quickly switch to a "stacked" single-column layout by changing the line in your `_config.yml` file that reads `layout: sidebar` to `layout: stacked`.
 
-Writing posts works
-[just like it does normally in Jekyll](https://jekyllrb.com/docs/posts/)
-except when you want to include extra resources likes pictures, videos,
-embedded Twitter posts, etc.
+#### Style
 
-Google AMP has it's own set of special html tags for including content. You
-should use these instead of normal Markdown or HTML tags.
+By default, your website appears with a "light" white and gray background, with dark text. But you can quickly switch to a "dark" background with white text by changing the line in your `_config.yml` file that reads `style: light` to `style: dark`.
 
-The two you are are most likely to need are `<amp-img>` and `<amp-youtube>`:
+#### Topics
 
-### Images in your posts
+Your website comes pre-configured with three topics (e.g. "Web design" and "Sass") that appear in a section titled "My Interests." These are also stored in your repository's `_config.yml` file, where you can define each topic's name and two other optional details:
+
+- `web_url`: The web address you'd like to your topic to link to (e.g. `https://github.com/topics/sass`).
+- `image_url`: The web address of an (ideally square) image that you'd like to appear with your topic.
+
+## Adding pages
+
+To **add a page** to your website (e.g. detailed resume):
+
+1. Create a new `.html` or `.md` file at the root of your repository.
+2. Give it a filename that you want to be used in the page's URL (e.g. `http://yoursite.dev/filename`).
+3. At the start of your file, include the following [front matter](https://jekyllrb.com/docs/front-matter/):
 
 ```
-<amp-img width="600" height="300" layout="responsive" src="/assets/images/your_picture.jpg"></amp-img>
+---
+layout: default
+---
 ```
 
-### Youtube Videos in your posts
+4. Save.
+
+## Adding blog posts
+
+To **add a blog post** to your website:
+
+1. Create a new `.md` file in your repository's `/_posts/` directory.
+2. Give it a filename using the following format:
 
 ```
-<amp-youtube data-videoid="lBTCB7yLs8Y" layout="responsive" width="480" height="270"></amp-youtube>
+YEAR-MONTH-DAY-title.MARKUP
 ```
 
-### Embedding other types of content
-
-The AMP Project provides helpers for many other types of content like audio,
-ads, Google Analytics, etc.
-
-* Built-in AMP tags:
- * https://github.com/ampproject/amphtml/blob/master/builtins/README.md
-
-* Extended AMP tags:
- * https://github.com/ampproject/amphtml/blob/master/extensions/README.md
-
-## Validating your page with Google AMP
-
-Google AMP adds built-in validation logic to make sure your pages follow all
-the rules so they render as fast as possible.
-
-To check your page, just add `#development=1` to any url on your site and then
-check the javascript console in your browser.
-
-http://localhost:4000/#development=1
-
-You will either see a success message:
+3. At the start of your file, include the following [front matter](https://jekyllrb.com/docs/front-matter/):
 
 ```
-Powered by AMP ⚡ HTML – Version 1457112743399
-AMP validation successful.
+---
+title: "The title of my blog post"
+---
 ```
 
-Or you will see a list of errors to fix:
+Your website comes with a placeholder blog post that you can reference. Notably, its [front matter](https://jekyllrb.com/docs/front-matter/) declares `published` as `false`, so that it won't appear on your website.
+
+While you _can_ also define a `layout` in the front matter, your website is pre-configured to assign the `post` layout to all of the posts in your `/_posts/` directory. So you don't have to declare that in your posts, if you don't want to.
+
+Jekyll's conventions for authoring and managing blog posts is very flexible. You can [learn more in Jekyll's documentation for "Posts."](https://jekyllrb.com/docs/posts/)
+
+## Content and templates
+
+To give you a sound foundation to start your personal website, your repository includes a handful of "includes" -- dynamic `.html` files that are re-used throughout your website. They're all stored in the `/_includes/` directory.
+
+There are the usual suspects, like `header.html` and `footer.html`. But there are few more worth pointing out:
+
+- `interests.html`: A heading and dynamic list of "My Interests," which is populated with the [topics](#topics) you list in your `_config.yml`.
+- `masthead.html`: A collection of your avatar, name, bio, and other metadata that's displayed prominently on all your webpages to help identify what the website is about.
+- `post-card.html`: A compact, summarized presentation of a blog post, re-used to display a listing of your latest blog posts.
+- `projects.html`: A heading and dynamic list of "My Projects," which is populated with a listing of your newest GitHub repositories.
+- `repo-card.html`: A compact, summarized presentation of a repository, re-used to display a listing of your GitHub repositories.
+- `thoughts.html`: A heading and dynamic list of "My Thoughts," which is populated with a listing of your latest blog posts.
+- `topic-card.html`: A compact, summarized presentation of a topic (defined in your `_config.yml`), re-used to display a listing of your interests.
+
+### Layouts
+
+Your repository comes with three layouts:
+
+- **default**: Not used by any of the built-in pages or posts, but useful for any new pages you create.
+- **home**: Used by your `index.html` homepage to display listings of your projects, interests, and (optionally) your blog posts.
+- **post**: Used by default by the posts in your `/_posts/` directory.
+
+Jekyll's convention for defining layouts is very flexible. You can [learn more about customizing your layouts in the Jekyll "Layouts" docs.](https://jekyllrb.com/docs/layouts/)
+
+## Styles
+
+Your website is pre-configured to use [a very flexible CSS framework called "Primer,"](https://styleguide.github.com/primer/) alongside any custom styles you write in your `/assets/styles.scss` Sass stylesheet. It's currently referenced within your `styles.scss` file, using the CSS import at-rule:
 
 ```
-Powered by AMP ⚡ HTML – Version 1457112743399
-AMP validation had errors:
-The attribute 'style' may not appear in tag 'span'
-The attribute 'style' may not appear in tag 'div'
+@import url('https://unpkg.com/primer/build/build.css');
 ```
 
-## Making Google serve your page
-
-Google will cache valid AMP pages if you link to them with one of these urls:
-
-`https://cdn.ampproject.org/c/s/<your page url here>`
-
-Or:
-
-`https://amp.gstatic.com/c/s/<your page url here>`
-
-But keep in mind these two limitations:
-
-1. The caches don't refresh that often. So don't view these urls until your page
-   is done!
-2. Remove `/s` from both urls if your page isn't served over `https://`.
-
-## Required Schema Data
-
-To actually get your page featured in Google search results, it needs to include
-a http://schema.org NewsArticle schema. See `_includes/metadata.json` for the
-version generated by default. You might want to tweak it.
-
-## Credits
-
-This theme is inspired by
-[Mediator by Dirk Fabisch](https://github.com/dirkfabisch/mediator). I used some
-of the css and html from that theme as a starting point. Thanks!
+You are, of course, welcome to remove it or replace it with another framework. Just bear in mind that the HTML that your website came pre-packaged with references multiple Primer "utility classes" to define things like column widths, margins, and background colors.
 
 ## License
 
-MIT. See LICENSE file in repo.
+The theme is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
