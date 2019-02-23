@@ -1,4 +1,4 @@
-layout: sidebar
+layout: stacked
 style: light
 
 plugins:
@@ -8,19 +8,32 @@ plugins:
 permalink: /:year/:month/:day/:title/
 
 defaults:
-  -
-    scope:
+  - scope:
       path: "" # an empty string here means all files in the project
       type: "posts"
     values:
       layout: "post"
 
 topics:
-  - name: CSS
-    web_url: https://github.com/topics/css
-    image_url: https://raw.githubusercontent.com/github/explore/6c6508f34230f0ac0d49e847a326429eefbfc030/topics/css/css.png
+  - name: Angular
+    web_url: https://github.com/topics/angular
+    image_url: https://raw.githubusercontent.com/github/explore/6c6508f34230f0ac0d49e847a326429eefbfc030/topics/angular/angular.png
 
-  - name: Web design
+  - name: ASP.NET
+    web_url: https://github.com/topics/aspnet
+    image_url: https://raw.githubusercontent.com/github/explore/810200c742ba8daf9eaf98bbbde9f4eb2149fd8d/topics/aspnet/aspnet.png
+
+  - name: Azure
+    web_url: https://github.com/topics/azure
+    image_url: https://raw.githubusercontent.com/github/explore/7b1d0500a8bc6dc4bd61c743051b80b1dd552a81/topics/azure/azure.png
+
+  - name: C#
+    web_url: https://github.com/topics/csharp
+    image_url: https://raw.githubusercontent.com/github/explore/7f96d7ea34ea0b21f159792a6a8f43b716b33379/topics/csharp/csharp.png
+
+  - name: Swift
+    web_url: https://github.com/topics/swift
+    image_url: https://raw.githubusercontent.com/github/explore/8fb8b0e9d61d266721825ce116060773ea2503c2/topics/swift/swift.png
 
   - name: Sass
     web_url: https://github.com/topics/sass
